@@ -8,6 +8,8 @@ import { useToast } from "@chakra-ui/react";
 import { useHistory } from "react-router-dom";
 import { ChatState } from "../../Context/ChatProvider";
 
+
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 const Login = () => {
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
@@ -41,7 +43,7 @@ const Login = () => {
       };
 
       const { data } = await axios.post(
-        `/api/user/login`,
+        `${BASE_URL}/api/user/login`,
         { email, password },
         config
       );

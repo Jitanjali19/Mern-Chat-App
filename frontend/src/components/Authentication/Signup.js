@@ -7,6 +7,8 @@ import axios from "axios";
 import { useState } from "react";
 import { useHistory } from "react-router";
 
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 const Signup = () => {
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
@@ -51,7 +53,7 @@ const Signup = () => {
         },
       };
       const { data } = await axios.post(
-        `/api/user`,
+        `${BASE_URL}/api/user`,
         {
           name,
           email,
