@@ -51,7 +51,7 @@ const Signup = () => {
         },
       };
       const { data } = await axios.post(
-        "/api/user",
+        `/api/user`,
         {
           name,
           email,
@@ -73,13 +73,15 @@ const Signup = () => {
       history.push("/chats");
     } catch (error) {
       toast({
-        title: "Error Occured!",
-        description: error.response.data.message,
-        status: "error",
-        duration: 5000,
-        isClosable: true,
-        position: "bottom",
-      });
+     title: "Error Occured!",
+    description:
+    error.response?.data?.message || error.message || "Something went wrong",
+    status: "error",
+    duration: 5000,
+    isClosable: true,
+    position:"buttom",
+
+    });
       setPicLoading(false);
     }
   };
