@@ -17,6 +17,14 @@ app.use(express.json()); // to accept json data
 //   res.send("API Running!");
 // });
 
+const cors = require("cors");
+
+app.use(cors({
+  origin: ["http://localhost:3000", "https://mern-chat-app.vercel.app"],
+  credentials: true,
+}));
+
+
 app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
 app.use("/api/message", messageRoutes);
