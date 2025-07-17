@@ -20,10 +20,17 @@ const MyChats = ({ fetchAgain }) => {
 
   const fetchChats = async () => {
     // console.log(user._id);
+    console.log(user); // Should print an object with token
+
     try {
+
+        const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+      setLoggedUser(userInfo);
+
+
       const config = {
         headers: {
-          Authorization: `Bearer ${user.token}`,
+          Authorization: `Bearer ${userInfo.token}`,
         },
       };
 
