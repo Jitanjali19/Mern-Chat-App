@@ -17,7 +17,7 @@ import UpdateGroupChatModal from "./miscellaneous/UpdateGroupChatModal";
 import { ChatState } from "../Context/ChatProvider";
 const ENDPOINT = "http://localhost:5000"; // "https://talk-a-tive.herokuapp.com"; -> After deployment
 
-const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+// const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 var socket, selectedChatCompare;
 
@@ -54,7 +54,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       setLoading(true);
 
       const { data } = await axios.get(
-        `${BASE_URL}/api/message/${selectedChat._id}`,
+        `https://mern-chat-app-5oqj.onrender.com/api/message/${selectedChat._id}`,
         config
       );
       setMessages(data);
@@ -85,7 +85,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         };
         setNewMessage("");
         const { data } = await axios.post(
-          `${BASE_URL}/api/message`,
+          `https://mern-chat-app-5oqj.onrender.com/api/message`,
           {
             content: newMessage,
             chatId: selectedChat,

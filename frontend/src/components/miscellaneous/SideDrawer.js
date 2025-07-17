@@ -33,7 +33,7 @@ import UserListItem from "../userAvatar/UserListItem";
 import { ChatState } from "../../Context/ChatProvider";
 
 
-const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+// const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 function SideDrawer() {
   const [search, setSearch] = useState("");
   const [searchResult, setSearchResult] = useState([]);
@@ -79,7 +79,7 @@ function SideDrawer() {
         },
       };
 
-      const { data } = await axios.get(`${BASE_URL}/api/user?search=${search}`, config);
+      const { data } = await axios.get(`https://mern-chat-app-5oqj.onrender.com/api/user?search=${search}`, config);
 
       setLoading(false);
       setSearchResult(data);
@@ -106,7 +106,7 @@ function SideDrawer() {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      const { data } = await axios.post(`${BASE_URL}/api/chat`, { userId }, config);
+      const { data } = await axios.post(`https://mern-chat-app-5oqj.onrender.com/api/chat`, { userId }, config);
 
       if (!chats.find((c) => c._id === data._id)) setChats([data, ...chats]);
       setSelectedChat(data);

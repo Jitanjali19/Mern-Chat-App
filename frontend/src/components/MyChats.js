@@ -10,7 +10,7 @@ import { Button } from "@chakra-ui/react";
 import { ChatState } from "../Context/ChatProvider";
 
 
-const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+// const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 const MyChats = ({ fetchAgain }) => {
   const [loggedUser, setLoggedUser] = useState();
 
@@ -27,7 +27,7 @@ const MyChats = ({ fetchAgain }) => {
         },
       };
 
-      const { data } = await axios.get(`${BASE_URL}/api/chat`, config);
+      const { data } = await axios.get(`https://mern-chat-app-5oqj.onrender.com/api/chat`, config);
       setChats(data);
     } catch (error) {
       toast({
