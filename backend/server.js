@@ -17,12 +17,13 @@ app.use(express.json()); // to accept json data
 //   res.send("API Running!");
 // });
 
-const cors = require("cors");
+const cors = require('cors');
 
 app.use(cors({
-  origin: ["http://localhost:3000", "https://mern-chat-app.vercel.app"],
+  origin: 'https://chipper-queijadas-77c428.netlify.app',
   credentials: true,
 }));
+
 
 
 app.use("/api/user", userRoutes);

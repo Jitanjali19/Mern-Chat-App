@@ -63,6 +63,7 @@ const Signup = () => {
         config
       );
       console.log(data);
+       if (data && data._id) {
       toast({
         title: "Registration Successful",
         status: "success",
@@ -73,6 +74,19 @@ const Signup = () => {
       localStorage.setItem("userInfo", JSON.stringify(data));
       setPicLoading(false);
       history.push("/chats");
+
+       } else {
+      console.error("User data missing:", data);
+      toast({
+        title: "Signup Failed",
+        description: "Invalid response from server.",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+    }
+
+    
     } catch (error) {
       toast({
      title: "Error Occured!",
